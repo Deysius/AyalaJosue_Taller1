@@ -4,7 +4,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace AyalaJosue_Taller1.NewFolder
 {
     public class EquipoRepository
-
+        //Hola
     {
         public IEnumerable<Equipo> DevuelveListadoEquipos()
         {
