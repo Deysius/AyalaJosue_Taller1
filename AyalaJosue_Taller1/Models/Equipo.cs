@@ -6,7 +6,7 @@ namespace AyalaJosue_Taller1.Models
     public class Equipo
     {
         [Key]
-        public int Id { get; set; }
+        public int Id { get; set; } 
         [Required]
         [MaxLength(100)]
         [DisplayName("Nombre del equipo")]

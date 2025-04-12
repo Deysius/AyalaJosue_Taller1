@@ -1,8 +1,40 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    .carousel-inner {
+        text-align: center;
+    }
+
+        .carousel-inner img {
+            max-width: 50%;
+            height: auto;
+            margin: 0 auto;
+        }
+</style>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Liga Pro</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2000" data-wrap="true">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/Imagenes/Liga PRO1.jpg"class="d-block w-60" src="..." alt="First slide">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Imagenes/Liga PRO2.jpg" class="d-block w-60" src="..." alt="Second slide">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Imagenes/Liga PRO3.jpg" class="d-block w-60" src="..." alt="Third slide">
+        </div>
+        <div class="carousel-item">
+            <img src="~/Imagenes/Liga PRO4.jpg" class="d-block w-60" src="..." alt="Fourth slide">
+        </div>
+    </div>
+</div>
+
+    </a>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </div>
