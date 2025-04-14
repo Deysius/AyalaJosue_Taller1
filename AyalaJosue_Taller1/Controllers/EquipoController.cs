@@ -30,12 +30,11 @@ namespace AyalaJosue_Taller1.Controllers
         public ActionResult Edit(int id)
         {
             var equipo = _repository.DevuelveEquiposPorID(id);
-            return View(equipo);
+            return View(equipo);    
         }
         [HttpPost]
         public ActionResult Edit(int Id, Equipo equipo)
         {
-            //Proceso de guardar
             try
             {
                 _repository.ActializarEquipo(Id, equipo);

@@ -14,10 +14,22 @@ namespace AyalaJosue_Taller1.Models
         [Range(0, 100)]
         public int PartidosJugados { get; set; }
         [Range(0, 100)]
-        public int PartidosGanamos { get; set; }
+        public int PartidosGanados { get; set; }
         [Range(0, 100)]
-        public int PartidosEmpatadaso { get; set; }
+        public int PartidosEmpatados{ get; set; }
         [Range(0, 100)]
         public int PartidosPerdidos { get; set; }
+        public string Descripcion { get; set; }
+        public string Logo { get; set; }
+        public int Puntos
+        {
+            get
+            {
+                return (PartidosGanados* 3) + (PartidosEmpatados * 1);
+            }
+        }
+
+
+
     }
 }

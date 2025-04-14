@@ -8,6 +8,18 @@
 
 <h4>Equipo</h4>
 <hr />
+<div class="row mb-4">
+    <div class="col-md-3 text-center">
+        <img src="@Model.Logo" alt="Logo de @Model.Nombre" class="img-fluid rounded shadow bg-white p-2" />
+    </div>
+    <div class="col-md-9">
+        <div class="alert alert-info bg-opacity-75">
+            <strong>Descripcion del equipo:</strong><br />
+            @Model.Descripcion
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
@@ -28,14 +40,14 @@
                 <span asp-validation-for="PartidosJugados" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PartidosGanamos" class="control-label"></label>
-                <input asp-for="PartidosGanamos" class="form-control" />
-                <span asp-validation-for="PartidosGanamos" class="text-danger"></span>
+                <label asp-for="PartidosGanados" class="control-label"></label>
+                <input asp-for="PartidosGanados" class="form-control" />
+                <span asp-validation-for="PartidosGanados" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PartidosEmpatadaso" class="control-label"></label>
-                <input asp-for="PartidosEmpatadaso" class="form-control" />
-                <span asp-validation-for="PartidosEmpatadaso" class="text-danger"></span>
+                <label asp-for="PartidosEmpatados" class="control-label"></label>
+                <input asp-for="PartidosEmpatados" class="form-control" />
+                <span asp-validation-for="PartidosEmpatados" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PartidosPerdidos" class="control-label"></label>
@@ -48,6 +60,7 @@
         </form>
     </div>
 </div>
+<div id="totalPuntos" class="alert alert-primary mt-3" style="display: none;"></div>
 
 <div>
     <a asp-action="Index">Back to List</a>
@@ -55,4 +68,19 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function calcularPuntos() {
+            let victorias = parseInt($('#PartidosGanados').val()) || 0;
+            let empates = parseInt($('#PartidosEmpatados').val()) || 0;
+            let puntos = (victorias * 3) + (empates * 1);
+            $('#totalPuntos').text("Total de puntos: " + puntos + " pts").fadeIn();
+        }
+        $(document).ready(function () {
+            calcularPuntos(); 
+            $('#PartidosGanados, #PartidosEmpatados').on('input', function () {
+                calcularPuntos(); 
+            });
+        });
+    </script>
 }
